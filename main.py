@@ -75,7 +75,7 @@ def deposit():
             if amount > 0:
                 break
             else:
-                print("Amount must be greeater that 0")
+                print("Amount must be greater than 0")
         else:
             print("Please enter a number!")
     return amount
@@ -130,8 +130,8 @@ def main():
     balance = deposit()
     while True:
         print(f"Current balance is Rs. {balance}")
-        answer = input("Press enter to play (Q to quit).")
-        if answer == "Q":
+        answer = input("Press enter to play (q to quit).")
+        if answer == "q":
             break
         balance += spin(balance)
     print(f"You left with Rs. {balance}")

@@ -22,6 +22,7 @@ symbol_value = {
     "D":1,
 }
 
+# Function to check money won, on which lines and how much
 def check_winnings(columns, lines, bet, values):
     winnings = 0
     winnig_lines = []
@@ -36,6 +37,7 @@ def check_winnings(columns, lines, bet, values):
             winnig_lines.append(line + 1)
     return winnings, winnig_lines
 
+# Creates the slot machine values
 def get_slot_machine_spin(rows, cols, symbols) :
     all_symbols = []
     for symbol, symbol_count in symbols.items():
@@ -54,11 +56,12 @@ def get_slot_machine_spin(rows, cols, symbols) :
         columns.append(column)
     return columns
 
+# Prints out the slot machine
 def print_slot_machine(columns):
     for row in range(len(columns[0])):
         for i, column in enumerate(columns):
             if i != len(columns) - 1:
-                print(column[row], end= "/")
+                print(column[row], end= "|")
             else:
                 print(column[row], end= "")
         print()
@@ -72,7 +75,7 @@ def deposit():
             if amount > 0:
                 break
             else:
-                print("Amount must be greeater that 0")
+                print("Amount must be greater than 0")
         else:
             print("Please enter a number!")
     return amount
@@ -127,8 +130,8 @@ def main():
     balance = deposit()
     while True:
         print(f"Current balance is Rs. {balance}")
-        answer = input("Press enter to play (Q to quit).")
-        if answer == "Q":
+        answer = input("Press enter to play (q to quit).")
+        if answer == "q":
             break
         balance += spin(balance)
     print(f"You left with Rs. {balance}")
